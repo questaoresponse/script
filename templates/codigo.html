@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gerador de Código TOTP</title>
+</head>
+<body>
+    <h1>Gerador de Código TOTP</h1>
+    <p>Insira a chave secreta:</p>
+    <input type="text" id="codigo">
+    <button onclick="generateTOTP()">Gerar Código TOTP</button>
+    <p>Código TOTP gerado: <span id="totpCode"></span></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function generateTOTP() {
+        $.ajax({
+url: '/',
+method: 'POST',
+data:{codigo:document.querySelector("#codigo").value},
+success: function(response) {
+            document.getElementById('totpCode').innerText = JSON.stringify(response)
+    }
+})
+}
+    </script>
+</body>
+</html>

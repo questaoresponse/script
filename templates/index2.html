@@ -1,0 +1,1036 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Página inicial</title>
+        <style>
+            body{
+                background-color:#f0f0f0;
+                width:100%;
+                height:100%;
+            }
+            #usuario{
+               position:relative;
+               margin-top:auto;
+               margin-bottom:auto;
+               margin-left:auto;
+               margin-right:auto;
+               width:15%;
+               height:2.5%; 
+            }
+            #email{
+               position:relative;
+               margin-top:auto;
+               margin-bottom:auto;
+               margin-left:auto;
+               margin-right:auto;
+               width:15%;
+               height:2.5%; 
+            }
+            #senha{
+               position:relative;
+               margin-top:auto;
+               margin-bottom:auto;
+               margin-left:auto;
+               margin-right:auto;
+               display:inline-block;
+               width:15%;
+               height:2.5%; 
+            }
+            #button{
+               position:relative;
+               margin-top:auto;
+               margin-bottom:auto;
+               margin-left:auto;
+               margin-right:auto;
+               display:inline-block;
+               width:15%;
+               height:5%;
+               background:white; 
+            }
+            #button:hover{
+                background:black;
+                color:white;
+            }
+            #pesquisa_pagina{
+              display:none;
+              background:gray;
+              position:fixed;
+              margin-top:40%;
+              width:100%;
+              height:10%;
+            }
+            #pesquisa{
+                position:relative;
+                display:inline-block;
+                margin-top:1%;
+                background:white;
+                color:black;
+                width:20%;
+                height:50%;
+            }
+            #pesquisa:hover{
+                background:black;
+                color:white;
+                border:white;
+            }
+            #input_pesquisa{
+                position:relative;
+                display:inline-block;
+                margin-left:2%;
+                margin-top:1%;
+                width:20%;
+                height:40%;
+            }
+            #nome_pesquisa{
+                position:relative;
+                display:inline-block;
+                background:gray;
+                color:black;
+                margin-left:25%;
+                margin-top:1%;
+                width:12.5%;
+                height:40%;
+            }
+            .nome_usuario_div{
+                display:inline-block;
+                position:relative;
+                width:95%;
+                height:100%;
+            }
+            .nome_usuario{
+                display:flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:relative;
+                background: white;
+                border: solid 2px black;
+                width:100%;
+                height:100%;
+            }
+            .soma_total{
+                display:inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:relative;
+                background: white;
+                border: solid 2px black;
+                width:25%;
+                height:100%;
+            }
+            .total_paginas{
+                display:inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:relative;
+                background: white;
+                border:solid 2px black;
+                width:25%;
+                height:100%;
+            }
+            .paginas_contadas{
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:relative;
+                background: white;
+                border:solid 2px black;
+                width:25%;
+                height:100%;
+            }
+            .nova_pagina{
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:relative;
+                background: white;
+                border:solid 2px black;
+                width:90%;
+                height:5%;
+            }
+            .detalhes{
+                position:relative;
+                display:none;
+                width:60%;
+                height:80%;
+                overflow-y: scroll;
+                scroll-snap-type: y mandatory;
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:absolute;
+                background:#f0f0f0;
+            }
+            #visao_geral{
+                user-select:none;
+                background:white;
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:relative;
+                border:solid 2px black;
+                width:30%;
+                height:5%;
+            }
+            #detalhes{
+                user-select: none;
+                background:white;
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:relative;
+                border:solid 2px black;
+                width:30%;
+                height:5%;
+
+            }
+            #nome_usuario{
+                user-select: none;
+                background:white;
+                display: inline-flex;
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                position:relative;
+                border:solid 2px black;
+                width:30%;
+                height:5%;
+            }
+            .visao_geral_div{
+                display:inline-block;
+                position:relative;
+                width:70%;
+                height:5%;
+            }
+            #pai_nome_usuario_div{
+                display:inline-block;
+                position:relative;
+                width:29%;
+                height:5%;
+            }
+            #myDialog {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            }
+
+            #myDialog p {
+            margin: 0 0 10px;
+            }
+
+            #myDialog button {
+            margin-right: 10px;
+            }
+            #bt-voltar_inicio{
+            position:fixed;
+            width:10%;
+            height:7.5%;
+            top:92.5%;
+            left:90%;
+            background:black;
+            color:white;
+            }
+            #usuario{
+            display:inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        #email{
+            display:inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        #senha{
+            display:inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        #opcoes{
+            display:inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:30%;
+            height:5%;
+        }
+            #usuario_tabela{
+            user-select: none;
+            font-size: 200%;
+            display:inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        #email_tabela{
+            user-select: none;
+            font-size: 200%;
+            display:inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        #senha_tabela{
+            user-select: none;
+            font-size: 200%;
+            display:inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        #opcoes_tabela{
+            user-select: none;
+            font-size: 200%;
+            display:inline-flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:30%;
+            height:5%;
+        }
+        .usuario{
+            display:inline-flex;
+            font-size: 200%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        .email{
+            display:inline-flex;
+            font-size: 200%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        .senha{
+            display:inline-flex;
+            font-size: 200%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            width:20%;
+            height:5%;
+        }
+        .opcoes{
+            display:inline-flex;
+            font-size: 200%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            position:relative;
+            background:white;
+            border:solid 2px black;
+            cursor:point;
+            width:30%;
+            height:5%;
+        }
+        .input_usuario{
+            display:inline-block;
+            position:relative;
+            width:17.5%;
+            height:80%;
+        }
+        .input_email{
+            display:inline-block;
+            position:relative;
+            width:17.5%;
+            height:80%;
+        }
+        .input_senha{
+            display:inline-block;
+            position:relative;
+            width:17.5%;
+            height:80%;
+        }
+        .bt-salvar{
+            display:inline-block;
+            position:relative;
+            background:white;
+            border: solid 2px black;
+            width:16%;
+            height:80%;
+        }
+        #tabela_login{
+            position:absolute;
+            display:none;
+            width:60%;
+            height:6%;
+
+        }
+        #tabela{
+            display:inline-block;
+            background:#f0f0f0;
+            position:relative;
+            width:90%;
+            margin-top:5%;
+        }
+        .opcao1{
+            position:relative;
+            width:8%;
+            height:16%;
+        }
+        .opcao2{
+            position:relative;
+            left:5%;
+            width:8%;
+            height:16%;
+        }
+        .opcao1 img{
+            cursor:pointer;
+            width:90%;
+            height:90%;
+        }
+        .opcao2 img{
+            cursor:pointer;
+            width:90%;
+            height:90%;
+        }
+        #executar_codigo{
+            display:inline-flex;
+            position:relative;
+            width:45%;
+            height:5%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            border:solid 2px black;
+            background:white;
+        }
+        #mostrar_banco{
+            display:inline-flex;
+            position:relative;
+            width:45%;
+            height:5%;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            border:solid 2px black;
+            background:white;
+        }
+        #tabela_login_fixa{
+            position:fixed;
+            display:none;
+            bottom:90%;
+            width:60%;
+            height:6%;
+
+        }
+        </style>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.0/socket.io.js"></script>
+        <script>
+            var socket=io.connect()
+            var usuario_antigo;
+            var opc;
+            var lista_usuario={}
+            var numero=0;
+            var numero2=0;
+            var usuario_clickado=''
+            var divpai=document.querySelector('#divpai')
+            var divpai2=document.querySelector('#divpai2')
+            function alerta(pergunta){
+            function abrir_alerta() {
+            document.querySelector('#texto_alerta').textContent=pergunta
+            var dialog = document.getElementById("myDialog");
+            dialog.style.display = "block";
+            }
+            abrir_alerta()
+            function fechar_alerta() {
+            var dialog = document.getElementById("myDialog");
+            dialog.style.display = "none";
+            }
+            document.getElementById("acceptButton").addEventListener("click", function() {
+            fechar_alerta();
+            return true
+            });
+            document.getElementById("cancelButton").addEventListener("click", function() {
+            fechar_alerta();
+            return false
+            });
+            }
+            function espc(id) {
+                if (id.includes('\\')){
+                    return id
+                }else{
+                    return id.replace(/\s/g, '\\ ');
+                }
+            }
+            function forEachJson(obj, callback) {
+              Object.keys(obj).forEach(function(chave) {
+              callback(chave, obj[chave]);
+              });
+            }
+            window.addEventListener('load',function(){
+         var index_p=document.querySelector('#index')
+         var usuario_p=document.querySelector('#usuario_html')
+         function index_pagina(){
+            function ajustar(){
+            document.body.style.width=`${window.offsetWidth}px`
+            document.body.style.height=`${window.offsetHeight*0.9}px`
+            }
+            ajustar()
+            window.addEventListener('resize',ajustar)
+            function enviar(){
+                var usuario=document.querySelector('#usuario').value;
+                var email=document.querySelector('#email').value;
+                var senha=document.querySelector('#senha').value;
+                var opcao=document.querySelector('#opcao').value;
+                var tipo=document.querySelector('#tipo').value;
+                if (tipo=='todos' && (usuario!='' || email !='' || senha!='')){
+                  if (alerta('Nome de usuário,email ou senha não está em branco,deseja usar a função "todos" mesmo assim?')){
+                    socket.emit('newinfo',{nome:usuario,email:email,senha:senha,opcao:opcao,tipo:tipo})
+                    document.querySelector("#input_login").style.display='none'
+                  }
+                }
+                if (tipo=='individual' && (usuario=='' || email =='' || senha=='')){
+                alert('Nome de usuário,email ou senha em branco, preencha as informações necessárias ou use a função "todos" para prosseguir.')
+                }else{
+                    socket.emit('newinfo',{nome:usuario,email:email,senha:senha,opcao:opcao,tipo:tipo})
+                    document.querySelector("#input_login").style.display='none'
+                }
+            }
+            document.querySelector('#button').addEventListener('click',function(){
+                enviar()
+            })
+            document.querySelector('#input_pesquisa').addEventListener('keyup',function(event){
+                if (event.key=='Enter'){
+                enviar()
+                }
+            })
+            function levar_elemento(pagina) {
+    
+              var elemento = document.getElementById(String(pagina));
+              if (elemento){
+              elemento.scrollIntoView({ behavior: 'smooth' });
+            }else{
+                var aviso=document.createElement('div')
+                aviso.id='aviso'
+                aviso.style.color='red'
+                aviso.style.background='blue'
+                aviso.style.width='27.5%'
+                aviso.style.height='6%'
+                aviso.style.fontSize='200%'
+                aviso.style.position='fixed'
+                aviso.style.marginTop='5%'
+                aviso.style.marginLeft='40%'
+                //aviso.style.borderBottom='blue 1%'
+                aviso.textContent='essa página não foi contada.'
+                divpai2.appendChild(aviso)
+                var intervalo=setTimeout(function(){
+                    aviso.remove()
+                },1000)
+              }
+            }
+            var pesquisa=document.querySelector('#pesquisa')
+            pesquisa.addEventListener('click',function(){
+              var input_pesquisa=document.querySelector('#input_pesquisa')
+              levar_elemento(input_pesquisa.value)
+            })
+            socket.on('inicio_visu',function(data){
+                var inicio_usuario=document.createElement('div')
+                var inicio
+                data_a=data
+                var nome_antigo=data_a['nome']
+                var nome=nome_antigo
+                var nome_usuario_div=document.createElement('div')
+                var nome_usuario=document.createElement('div')
+                var soma_total=document.createElement('div')
+                var total_paginas=document.createElement('div')
+                var paginas_contadas=document.createElement('div')
+                var detalhes_div=document.createElement('div')
+                var visao_geral_div=document.createElement('div')
+                nome_usuario_div.id='nome_usuario_div'+nome
+                nome_usuario.id='nome_usuario'+nome
+                soma_total.id='soma_total'+nome
+                total_paginas.id='total_paginas'+nome
+                paginas_contadas.id='paginas_contadas'+nome
+                detalhes_div.id='detalhes_div'+nome
+                visao_geral_div.id='visao_geral_div'+nome
+                nome_usuario_div.classList.add('nome_usuario_div')
+                nome_usuario.classList.add('nome_usuario')
+                soma_total.classList.add('soma_total')
+                total_paginas.classList.add('total_paginas')
+                paginas_contadas.classList.add('paginas_contadas')
+                detalhes_div.classList.add('detalhes')
+                visao_geral_div.classList.add('visao_geral_div')
+                nome_usuario.textContent=nome_antigo
+                soma_total.textContent='soma total: 0'
+                total_paginas.textContent='total de páginas: '+data_a['total_paginas']
+                paginas_contadas.textContent='páginas contadas: 0'
+                var verificar_c=document.querySelector('.visao_geral_div')
+                if (verificar_c){
+                    visao_geral_div.style.display='none'
+                }
+                nome_usuario_div.appendChild(nome_usuario)
+                visao_geral_div.appendChild(soma_total)
+                visao_geral_div.appendChild(total_paginas) 
+                visao_geral_div.appendChild(paginas_contadas)
+                var pai_nome_usuario_div=document.querySelector("#pai_nome_usuario_div")
+                pai_nome_usuario_div.appendChild(nome_usuario_div)
+                index_p.appendChild(visao_geral_div)
+                index_p.appendChild(detalhes_div)
+            })
+            socket.on('update_visu',function(data){
+                console.log(data)
+            var soma_total = document.querySelector("#soma_total"+espc(data['name']));
+            soma_total.textContent='soma total: '+data["soma_total"]
+            var paginas_contadas = document.querySelector('#paginas_contadas'+espc(data['name']));
+            paginas_contadas.textContent='páginas contadas: '+data['paginas_contadas']
+           })
+           document.addEventListener('click',function(event){
+            console.log(event.target.parentNode.id.slice(0,16))
+            console.log(event.target.parentNode.id.slice(16))
+            console.log(event.target.id)
+            if (event.target.parentNode.id.slice(0,16)=='nome_usuario_div'){
+              usuario=event.target.parentNode.id.slice(16)
+              var elements = document.getElementsByClassName('nome_usuario_div');
+              for (var i = 0; i < elements.length; i++) {
+                if (elements[i].id!='nome_usuario_div'+usuario){
+                  var usuario2=elements[i].id.slice(16)
+                  var elem1=document.querySelector('#nome_usuario'+espc(usuario2))
+                  elements[i].style.background = 'white';
+                  elements[i].style.color = 'black';
+                  elem1.style.background = 'white';
+                  elem1.style.color = 'black';
+                }else{
+                  var elem=document.querySelector('#nome_usuario'+espc(usuario))
+                  elements[i].style.background='black';
+                  elements[i].style.color = 'white';
+                  elem.style.background='black';
+                  elem.style.color = 'white';
+                }
+              }
+              var detalhes_div;
+              var visao_geral_div;
+              console.log(usuario_clickado)
+              if (usuario_clickado){
+              detalhes_div=document.querySelector('#detalhes_div'+usuario_clickado)
+              visao_geral_div=document.querySelector('#visao_geral_div'+usuario_clickado)
+              detalhes_div.textContent=''
+              visao_geral_div.style.display='none'
+              usuario_clickado=espc(usuario)
+              if (document.querySelector('#visao_geral').style.background=='black'){
+                
+                vis_f(usuario_clickado)
+              }
+              if (document.querySelector('#detalhes').style.background=='black'){
+                det_f(usuario_clickado)
+              }
+              }
+              if (!usuario_clickado){
+                usuario_clickado=espc(usuario)
+              detalhes_div=document.querySelector('#detalhes_div'+usuario_clickado)
+              visao_geral_div=document.querySelector('#visao_geral_div'+usuario_clickado)
+              detalhes_div.textContent=''
+              visao_geral_div.style.display='inline-block'
+              var pesquisa=document.querySelector('#pesquisa_pagina')
+              pesquisa.style.display='none'
+              var visao_geral=document.querySelector('#visao_geral')
+              visao_geral.style.background='black'
+              visao_geral.style.color='white'
+              var detalhes=document.querySelector('#detalhes')
+              detalhes.style.background='white'
+              detalhes.style.color='black'
+              }
+              usuario_clickado=espc(usuario)
+            }else if ( event.target.id=='visao_geral' ){
+                vis_f(usuario_clickado)
+            }else if (event.target.id=='detalhes'){
+                det_f(usuario_clickado)
+            }
+            function vis_f(nome){
+                console.log(usuario_clickado)
+                var detalhes_div=document.querySelector('#detalhes_div'+nome)
+                var pesquisa=document.querySelector('#pesquisa_pagina')
+                var visao_geral=document.querySelector('#visao_geral')
+                var detalhes=document.querySelector('#detalhes')
+                var visao_geral_div=document.querySelector('#visao_geral_div'+nome)
+                detalhes_div.textContent=''
+                pesquisa.style.display='none'
+                visao_geral.style.background='black'
+                visao_geral.style.color='white'
+                detalhes.style.background='white'
+                detalhes.style.color='black'
+                visao_geral_div.style.display='inline-block'
+                detalhes_div.style.display='none'
+                socket.emit('cancelar_detalhes','cancelar')
+            }
+            function det_f(nome){
+                var detalhes_div=document.querySelector('#detalhes_div'+nome)
+                var pesquisa=document.querySelector('#pesquisa_pagina')
+                var visao_geral=document.querySelector('#visao_geral')
+                var detalhes=document.querySelector('#detalhes')
+                var visao_geral_div=document.querySelector('#visao_geral_div'+nome)
+                var ct_d=document.querySelectorAll('.detalhes')
+                for (var i=0;i<ct_d.length;i++){
+                    if (ct_d[i]!=detalhes_div){
+                        ct_d[i].style.display='none'
+                    }
+                }
+                detalhes_div.textContent=''
+                pesquisa.style.display='none'
+                visao_geral.style.background='white'
+                visao_geral.style.color='black'
+                detalhes.style.background='black'
+                detalhes.style.color='white'
+                visao_geral_div.style.display='none'
+                detalhes_div.style.display='inline-block'
+                socket.emit('detalhes',nome)
+            }
+           })
+           socket.on('receber_detalhes',function(data){
+            var detalhes_div=document.querySelector('#detalhes_div'+usuario_clickado)
+            detalhes_div.textContent=''
+            var ct_d=document.querySelectorAll('.detalhes')
+            for (var i=0;i<ct_d.length;i++){
+                    if (ct_d[i]!=detalhes_div){
+                        ct_d[i].style.display='none'
+                    }
+            }
+            for (var i=0;i<data.length;i++){
+            data_a=data[i]
+            var nome_pagina=document.createElement('div')
+            nome_pagina.classList.add('nova_pagina')
+            nome_pagina.id=String(i+1)
+            nome_pagina.textContent='total de visualizacões na página '+String(i+1)+': '+data_a
+            nome_pagina.style.scrollSnapAlign='end'
+            detalhes_div.appendChild(nome_pagina)
+            detalhes_div.scrollTop=detalhes_div.scrollHeight
+            var pesquisa=document.querySelector('#pesquisa_pagina')
+            pesquisa.style.display='block'
+            var detalhes=document.querySelector('#detalhes')
+            detalhes.style.background='black'
+            detalhes.style.color='white'
+            var visao_geral=document.querySelector('#visao_geral')
+            visao_geral.style.background='white'
+            visao_geral.style.color='black'
+            }
+           })
+           }
+    function usuario_pagina(){
+        socket.emit('tabela', 'qual tabela');
+        socket.on('tabela',function(data){
+              var tabela_login_fixa=document.querySelector('#tabela_login_fixa')
+              tabela_login_fixa.style.display='block'
+              var tabela=document.querySelector('#tabela')
+              tabela.textContent=''
+              var tabela_usuario=document.createElement('div')
+              var tabela_email=document.createElement('div')
+              var tabela_senha=document.createElement('div')
+              var tabela_opcoes=document.createElement('div')
+              tabela_usuario.id='usuario_tabela'
+              tabela_email.id='email_tabela'
+              tabela_senha.id='senha_tabela'
+              tabela_opcoes.id='opcoes_tabela'
+              tabela_usuario.textContent='usuário'
+              tabela_email.textContent='email'
+              tabela_senha.textContent='senha'
+              tabela_opcoes.textContent='opcões'
+              tabela.appendChild(tabela_usuario)
+              tabela.appendChild(tabela_email)
+              tabela.appendChild(tabela_senha)
+              tabela.appendChild(tabela_opcoes)
+              for (var i=0;i<data.length;i++){
+                var data_a=data[i]
+                var nome_usuario=data_a[0]
+                var nome_email=data_a[1]
+                var nome_senha=data_a[2]
+                lista_usuario[nome_usuario]={email:nome_email,senha:nome_senha}
+                var usuario=document.createElement('div')
+                usuario.classList.add('usuario')
+                usuario.textContent=nome_usuario
+                var email=document.createElement('div')
+                email.classList.add('email')
+                email.textContent=nome_email
+                var senha=document.createElement('div')
+                senha.classList.add('senha')
+                senha.textContent=nome_senha
+                var opcoes=document.createElement('div')
+                var opcao1=document.createElement('div')
+                var opcao2=document.createElement('div')
+                var img1=document.createElement('img')
+                var img2=document.createElement('img')
+                opcoes.classList.add('opcoes')
+                opcao1.classList.add('opcao1')
+                opcao2.classList.add('opcao2')
+                tabela.appendChild(usuario)
+                tabela.appendChild(email)
+                tabela.appendChild(senha)
+                var fontSize = 200; // Tamanho inicial da fonte em percentual
+                var maxWidth = usuario.offsetWidth; // Largura da div
+                var maxHeight = usuario.offsetHeight; // Altura da div
+                while (usuario.scrollWidth > maxWidth || usuario.scrollHeight > maxHeight) {
+                fontSize--;
+                usuario.style.fontSize = fontSize + '%';
+                }
+                fontSize = 200; // Tamanho inicial da fonte em percentual
+                maxWidth = email.offsetWidth; // Largura da div
+                maxHeight = email.offsetHeight; // Altura da div
+                while (email.scrollWidth > maxWidth || email.scrollHeight > maxHeight) {
+                fontSize--;
+                email.style.fontSize = fontSize + '%';
+                }
+                fontSize = 200; // Tamanho inicial da fonte em percentual
+                maxWidth = senha.offsetWidth; // Largura da div
+                maxHeight = senha.offsetHeight; // Altura da div
+                while (senha.scrollWidth > maxWidth || senha.scrollHeight > maxHeight) {
+                fontSize--;
+                senha.style.fontSize = fontSize + '%';
+                }
+                img1.src='/static/loop2.png'
+                img2.src='/static/bin.png'
+                //opcoes.style.height=`${senha.offsetHeight-3}px`
+                //opcoes.style.top=`${7}px`
+                opcao1.id=nome_usuario
+                opcao2.id=nome_usuario
+                opcao1.appendChild(img1)
+                opcao2.appendChild(img2)
+                opcoes.appendChild(opcao1)
+                opcoes.appendChild(opcao2)
+                tabela.appendChild(opcoes)
+              }
+            })
+        function criar_login(opcoes, antigo_usuario) {
+          var tabela = document.querySelector('#tabela');
+          tabela.textContent = '';
+          var tabela_login_fixa=document.querySelector('#tabela_login_fixa')
+          tabela_login_fixa.style.display='none'
+          var tabela_login = document.querySelector('#tabela_login');
+          tabela_login.style.display = 'block';
+          var salvar = document.querySelector('.bt-salvar');
+          usuario_antigo=antigo_usuario
+          if (opcoes === 'update') {
+            opc = 'update';
+            var email=lista_usuario[antigo_usuario]['email']
+            var senha=lista_usuario[antigo_usuario]['senha']
+            var input_usuario=document.querySelector('#input_usuario').value=antigo_usuario
+            var input_email=document.querySelector('#input_email').value=email
+            var input_senha=document.querySelector('#input_senha').value=senha
+          } else if (opcoes === 'create') {
+            opc = 'create';
+          }
+        }
+        var salvar_fixa=document.querySelector('#bt-salvar_fixa')
+          salvar_fixa.addEventListener('click',function(){
+            var nome_usuario = document.querySelector('#input_usuario_fixa').value;
+            var nome_email = document.querySelector('#input_email_fixa').value;
+            var nome_senha = document.querySelector('#input_senha_fixa').value;
+            if (nome_usuario=='' || nome_email=='' || nome_senha==''){
+              alert('Nome de usuário, email ou senha em branco, preencha as informações necessárias para prosseguir.')
+            }else{
+              tabela_login.style.display = 'none';
+            document.querySelector('#input_usuario_fixa').value='';
+            document.querySelector('#input_email_fixa').value='';
+            document.querySelector('#input_senha_fixa').value='';
+            socket.emit('modificar_tabela', {
+              opcao: 'create',
+              usuario: nome_usuario,
+              email: nome_email,
+              senha: nome_senha
+            });
+            }
+          })
+        var salvar=document.querySelector('#bt-salvar')
+        salvar.addEventListener('click',function(){
+            console.log('atualizado')
+            console.log(tabela_login.style.display)
+            var antigo_usuario=usuario_antigo
+            var nome_usuario_novo = document.querySelector('#input_usuario').value;
+            var nome_email_novo = document.querySelector('#input_email').value;
+            var nome_senha_novo = document.querySelector('#input_senha').value;
+            if (nome_usuario_novo=='' || nome_email_novo=='' || nome_senha_novo==''){
+              alert('Nome de usuário, email ou senha em branco, preencha as informações necessárias para prosseguir.')
+            }else{
+              tabela_login.style.display = 'none';
+              console.log(tabela_login.style.display)
+            document.querySelector('#input_usuario').value='';
+            document.querySelector('#input_email').value='';
+            document.querySelector('#input_senha').value='';
+            socket.emit('modificar_tabela', {
+              opcao: 'update',
+              antigo_usuario: antigo_usuario,
+              usuario: nome_usuario_novo,
+              email: nome_email_novo,
+              senha: nome_senha_novo
+            });
+            }
+        })
+        document.addEventListener('click', function(event) {
+          if (event.target.className === 'opcao1' || event.target.parentNode.className === 'opcao1') {
+            var tabela = document.querySelector('#tabela');
+            tabela.textContent = '';
+            var tabela_login_fixa=document.querySelector('#tabela_login_fixa')
+            tabela_login_fixa.style.display='none'
+            if (event.target.className=='opcao1'){
+                criar_login('update', event.target.id);
+            }else{
+            criar_login('update', event.target.parentNode.id);
+            }
+          }
+          if (event.target.className === 'opcao2' || event.target.parentNode.className === 'opcao2') {
+            var tabela = document.querySelector('#tabela');
+            tabela.textContent = '';
+            var tabela_login_fixa=document.querySelector('#tabela_login_fixa')
+            tabela_login_fixa.style.display='none'
+            if (event.target.className=='opcao2'){
+                socket.emit('modificar_tabela', {opcao: 'delete',usuario: event.target.id});
+            }else{
+                socket.emit('modificar_tabela', {opcao: 'delete',usuario: event.target.parentNode.id});
+            }
+          }
+        });
+        var voltar_tabela=document.querySelector('#bt-voltar_tabela')
+          voltar_tabela.addEventListener('click',function(){
+          var tabela=document.querySelector('#tabela')
+          var tabela_login=document.querySelector('#tabela_login')
+          tabela_login.style.display='none'
+          tabela.style.display='inline-block'
+          socket.emit('tabela', 'qual tabela');
+        })
+      
+    }
+    index_pagina()
+    usuario_pagina()
+    var executar_codigo=document.querySelector('#executar_codigo')
+    var mostrar_codigo=document.querySelector('#mostrar_banco')
+    ex_c()
+    function ex_c(){
+        index_p.style.display='block'
+        usuario_p.style.display='none'
+        executar_codigo.style.background='black'
+        executar_codigo.style.color='white'
+        mostrar_codigo.style.background='white'
+        mostrar_codigo.style.color='black'
+    }
+    function ms_c(){
+        index_p.style.display='none'
+        usuario_p.style.display='block'
+        executar_codigo.style.background='white'
+        executar_codigo.style.color='black'
+        mostrar_codigo.style.background='black'
+        mostrar_codigo.style.color='white'
+    }
+    executar_codigo.addEventListener('click',function(){
+        ex_c()
+    })
+    mostrar_codigo.addEventListener('click',function(){
+        ms_c()
+    })
+        })
+        </script>
+    </head>
+    <body>
+        <div id="executar_codigo">executar código</div>
+        <div id="mostrar_banco">mostrar banco de dados</div>
+        <div id="index">
+        <div id="input_login">
+        <input type="'text" id="usuario" placeholder="insira seu nome de usuário">
+        <input type="'text" id="email" placeholder="insira seu email">
+        <input type="text" id="senha" placeholder="insira sua senha">
+        <button id="button">Enviar</button>
+        <select id="opcao">
+            <option>contar visualizações</option>
+            <option>contar visualizações da lixeira</option>
+            <option>esvaziar lixeira</option>
+        </select>
+        <select id="tipo">
+            <option>todos</option>
+            <option>individual</option>
+        </select>
+        </div>
+        <div id="pesquisa_pagina">
+        <div id="nome_pesquisa">ir até a página especifica</div>
+        <input type="text" id="input_pesquisa" placeholder="insira sua página de busca específica">
+        <button id="pesquisa">Pesquisar</button>
+        </div>
+        <div id="nome_usuario">nome do usuario</div>
+        <div id="visao_geral">visão geral</div>
+        <div id="detalhes">detalhes</div>
+        <div id="pai_nome_usuario_div"></div>
+        <div id="myDialog">
+            <p id="texto_alerta"></p>
+            <button id="acceptButton">Aceitar</button>
+            <button id="cancelButton">Recusar</button>
+        </div>          
+        </div>
+        <div id="usuario_html">
+            <div id="tabela"></div>
+            <div id="tabela_login_fixa">
+                <input type="text" class="input_usuario" id="input_usuario_fixa" placeholder="insira seu nome de usuário">
+                <input type="text" class="input_email" id="input_email_fixa" placeholder="insira seu email">
+                <input type="text" class="input_senha" id="input_senha_fixa" placeholder="insira sua senha">
+                <div class="bt-salvar" id="bt-salvar_fixa">salvar</div>
+            </div>
+            <div id="tabela_login">
+            <input type="text" class="input_usuario" id="input_usuario" placeholder="insira seu nome de usuário">
+            <input type="text" class="input_email" id="input_email" placeholder="insira seu email">
+            <input type="text" class="input_senha" id="input_senha" placeholder="insira sua senha">
+            <div class="bt-salvar" id="bt-salvar">salvar</div>
+            <div id="bt-voltar_tabela">voltar para tabela</div>
+            </div>
+        </div>
+    </body>
+</html>

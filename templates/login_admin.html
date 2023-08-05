@@ -1,0 +1,168 @@
+<html>
+    <head>
+      <style>
+        body{
+            margin:0px;
+            width:100%;
+            height:100%;
+            background:#f0f0f0;
+        }
+        #campo_cadastro{
+            left:37.5%;
+            top:23%;
+            width:25%;
+            height:40%;
+            position:absolute;
+            background:white;
+            border-radius:5px;
+        }
+        #email{
+            position:absolute;
+            width:90%;
+            height:20%;
+            left:5%;
+            top:10%;
+            border-radius:0px;
+            border:solid 2px #f0f0f0;
+            font-size:110%;
+        }
+        #senha{
+            position:absolute;
+            width:90%;
+            height:20%;
+            left:5%;
+            top:35%;
+            border-radius:0px;
+            border:2px solid #f0f0f0;
+            font-size:110%;
+        }
+        #button{
+            position:absolute;
+            background:black;
+            color:white;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width:90%;
+            height:20%;
+            left:5%;
+            top:60%;
+            font-size:90%;
+            border:solid 2px black;
+            border-radius:5px;
+            font-size:90%;
+        }
+        #button:hover{
+            background:white;
+            color:black;
+        }
+        #recuperar_senha{
+            position:absolute;
+            background:white;
+            left:32.5%;
+            top:85%;
+            width:35%;
+            height:5%;
+            font-family:sans-serif;
+            font-style: normal;
+            color:black;
+            font-size:80%;
+            text-decoration: none;
+        }
+        #recuperar_senha:hover{
+            text-decoration:underline;
+        }
+        img{
+            position:absolute;
+            width:12.5%;
+            height:12.5%;
+            left:43.75%;
+            top:8.725%;
+        }
+        #mensagem_erro{
+            display:none;
+            position:absolute;
+            background: #f78080;
+            width:90%;
+            height:7.5%;
+            left:5%;
+            color:red;
+            font-size:110%;
+        }
+      </style>
+    </head>
+    <body>
+        <form id="form" action="/" method="post">
+            <img src="/static/logo-anjoovi.png">
+            <div id="campo_cadastro">
+                <div id="mensagem_erro">Email ou senha estão incorretos</div>
+                <input type="email" id="email" placeholder="E-mail" required>
+                <input type="password" id="senha" placeholder="Senha" required>
+                <button type="submit" id="button">Entrar</button>
+                <a id="recuperar_senha" href="/admin/recuperar_senha">Esqueceu a senha?</a>
+            </div>
+        </form>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+var form=document.querySelector('#form')
+form.addEventListener('submit',function(event){
+event.preventDefault()
+var email=document.querySelector('#email')
+var senha=document.querySelector('#senha')
+$.ajax({
+url: '',
+method: 'POST',
+data:{email:email.value,senha:senha.value},
+success: function(response) {
+  if (response=='true'){
+    location.reload()
+  }else{
+    var campo_login=document.querySelector('#campo_cadastro')
+    var mensagem_erro=document.querySelector('#mensagem_erro')
+    var button=document.querySelector('#button')
+    var recuperar_senha=document.querySelector('#recuperar_senha')
+    mensagem_erro.style.display='block'
+    campo_login.style.height='276'
+    email.style.top='15%'
+    senha.style.top='40%'
+    button.style.top='70%'
+    recuperar_senha.style.top='95%'
+  }
+},
+error: function(error) {
+// Lida com erros aqui
+console.log(error);
+}
+});
+
+
+})
+window.onload=function(){
+ajeitar_campo()
+function ajeitar_campo(){
+var width=window.innerWidth
+var height=window.innerHeight;
+var em=document.querySelector('#campo_cadastro')
+var img=document.querySelector('#img')
+if (width>700){
+em.style.width='350px'
+em.style.height='246px'
+em.style.left='calc(50% - 175px)'
+em.style.top='25%'
+img.style.width='170.72px'
+img.style.height='70px'
+}else{
+em.style.width='90%'
+em.style.left='calc(50% - 45%)'
+}
+}
+window.addEventListener('resize',ajeitar_campo)
+var ss=document.querySelector('#senha')
+console.log(em.offsetWidth)
+console.log(em.offsetHeight)
+
+}
+        </script>
+    </body>
+</html>
